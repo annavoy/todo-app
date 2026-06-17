@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple todo app to manage daily tasks. Built with vanilla JavaScript." />
+  <title>Todo App</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <main class="app">
+    <header>
+      <h1>Todo App</h1>
+      <p class="subtitle">Add tasks, mark them done, and keep your day organized.</p>
+    </header>
+
+    <form id="todoForm" class="input-box">
+      <input
+        id="todoInput"
+        type="text"
+        placeholder="What do you need to do?"
+        maxlength="200"
+        autocomplete="off"
+        aria-label="New task"
+      />
+      <button type="submit">Add task</button>
+    </form>
+
+    <section class="filters" aria-label="Filter tasks">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="active">Active</button>
+      <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+    </section>
+
+    <section class="tasks-section" aria-labelledby="tasks-heading">
+      <div class="tasks-header">
+        <h2 id="tasks-heading">Tasks <span id="tasksCount" class="tasks-count">(0)</span></h2>
+        <button type="button" id="clearCompleted" class="clear-btn" hidden>Clear completed</button>
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <p>No tasks yet. Add your first one above!</p>
+      </div>
+
+      <ul id="tasksList" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <div id="errorToast" class="error-toast" role="alert"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
